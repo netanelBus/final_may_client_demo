@@ -7,9 +7,10 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 
-      env:
-        VITE_NISIM: david
-      
+env:
+  VITE_NISIM: david
+  VITE_API_HOST: https://dull-cyan-crow-yoke.cyclic.app
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
       - run: npm && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FINAL_FULLSTACK_DEMO }}'
+          repoToken: '${{secrets.GITHUB_TOKEN}}'
+          firebaseServiceAccount: '${{secrets.FIREBASE_SERVICE_ACCOUNT_FINAL_FULLSTACK_DEMO}}'
           channelId: live
           projectId: final-fullstack-demo
