@@ -1,6 +1,8 @@
+const text = import.meta.env.VITE_NISIM;
+
 function Main() {
     return <main>
-      <h2> blah blah blah </h2>
+      <h1>{text}</h1>
     </main>;
 }
 
